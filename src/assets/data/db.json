@@ -1,0 +1,22 @@
+{
+  "carros": [
+    {
+      "id": 1,
+      "modelo": "BMW X7",
+      "cor": "Preto",
+      "preco": 455.95
+    },
+    {
+      "id": 2,
+      "modelo": "Mercedes benz c180",
+      "cor": "Azul",
+      "preco": 194.9
+    },
+    {
+      "id": 3,
+      "modelo": "Land Rover Range Rover Velar",
+      "cor": "Branco",
+      "preco": 377.38
+    }
+  ]
+}
