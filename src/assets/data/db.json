@@ -2,21 +2,21 @@
   "carros": [
     {
       "id": 1,
-      "modelo": "BMW X7",
-      "cor": "Preto",
-      "preco": 455.95
+      "modelo": "Mitsubishi Lancer",
+      "cor": "Branco",
+      "preco": 40.00
     },
     {
       "id": 2,
-      "modelo": "Mercedes benz c180",
-      "cor": "Azul",
-      "preco": 194.9
+      "modelo": "McLaren GT",
+      "cor": "Preto",
+      "preco": 400.9
     },
     {
       "id": 3,
-      "modelo": "Land Rover Range Rover Velar",
-      "cor": "Branco",
-      "preco": 377.38
+      "modelo": "Mercedes AMG",
+      "cor": "Verde",
+      "preco": 300.50
     }
   ]
 }

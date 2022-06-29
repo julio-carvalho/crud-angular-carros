@@ -9,7 +9,7 @@ import { Carro } from '../models/carro.models';
 })
 export class CarroService {
 
-  private url = 'http://localhost:3000/cars'; // api rest fake
+  url = 'http://localhost:3000/carros'; // api rest fake
 
   //incluindo o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -55,7 +55,7 @@ export class CarroService {
   }
 
   // deleta um carro
-  deleteCar(car: Carro) {
+  deletaCarro(car: Carro) {
     return this.httpClient.delete<Carro>(this.url + '/' + car.id, this.httpOptions)
       .pipe(
         retry(1),

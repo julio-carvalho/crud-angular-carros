@@ -1,15 +1,14 @@
-import { CarroService } from './services/carro.service';
-import { Carro } from './models/carro.models';
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { CarroService } from "./services/carro.service";
+import { Carro } from "./models/carro.models";
+import { Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  title = 'angular-http';
 
   carro = {} as Carro;
   carros: Carro[];
@@ -17,28 +16,47 @@ export class AppComponent implements OnInit {
   constructor(private carroService: CarroService) {}
 
   ngOnInit(): void {
-    this.carroService.getCarros();
+    this.getCarros();
   }
 
-  // valida se o carro já existe, se não ele cria um novo carro
+  // Valida se o carro já existe, se não ele cria um novo carro
   salvaCarro(form: NgForm) {
     if (this.carro.id !== undefined) {
       this.carroService.updateCarro(this.carro).subscribe(() => {
-        //this.cleanForm(form);
+        this.limpaForm(form);
       });
     } else {
       this.carroService.salvaCarro(this.carro).subscribe(() => {
-        //this.cleanForm(form);
+        this.limpaForm(form);
       });
     }
   }
 
-    // Chama o service que retorna todos os carros
-    getCars() {
-      this.carroService.getCarros().subscribe((carros: Carro[]) => {
-        this.carros = carros;
-      });
-    }
+  // Chama o service que retorna todos os carros
+  getCarros() {
+    this.carroService.getCarros().subscribe((carros: Carro[]) => {
+      this.carros = carros;
+    });
+  }
+
+  // Deleta um carro
+  deletaCarro(carro: Carro) {
+    this.carroService.deletaCarro(carro).subscribe(() => {
+      this.getCarros();
+    });
+  }
+
+  // Armazena o carro
+  tempCarro(carro: Carro) {
+    this.carro = { ...carro};
+  }
+
+  // Limpa formulario
+  limpaForm(form: NgForm) {
+    this.getCarros();
+    form.resetForm();
+    this.carro = {} as Carro;
+  }
 
 
 }
